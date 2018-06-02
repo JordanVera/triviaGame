@@ -1,0 +1,27 @@
+* {
+	font-family: 'Cinzel', serif;
+}
+
+#mainContainer {
+	margin: 8rem auto;
+}
+
+
+#submitGame {
+	width: 100%;
+	padding: .6rem 0;
+	font-size: 1.4rem;
+}
+
+#submitGame:hover {
+	
+}
+
+body {
+	background: black;
+}
+
+.btn {
+	border: 1px solid;
+	padding: .6rem;
+}
