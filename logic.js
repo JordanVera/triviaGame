@@ -33,7 +33,8 @@ const mainSection = document.querySelector('#mainSection'),
 	  question = document.querySelector('#question'),
 	  answersContainer = document.querySelector('#answers'),
 	  scoreContainer = document.querySelector('#score'),
-	  submit = document.querySelector('#submit');	
+	  submit = document.querySelector('#submit'),
+	  mainContainer = document.querySelector('#mainContainer');	
 	  
 let currentQuestion = 0,
 	score = 0,
@@ -64,6 +65,7 @@ if (currentQuestion === 0) {
 }
 }
 
+
 // Create a f(x) that checks the guess of the Player
 function checkAnswer() {
 	if (askingQuestion) {
@@ -86,7 +88,7 @@ function checkAnswer() {
 			let labelStyle = document.getElementsByTagName("label")[correctIndex].style;
 			labelStyle.fontWeight = 'bold';
 			const audio = [new Audio('./media/sounds/femaleScream.mp3') ,new Audio('./media/sounds/nmh_scream1.mp3')];
-			let randomAudio = audio[Math.floor(Math.random() * audio.length)]
+			let randomAudio = audio[Math.floor(Math.random() * audio.length)];
 			if (playerGuess == quizQuestions[currentQuestion].correct) {
 				score++;
 				labelStyle.color = 'green';
@@ -117,8 +119,10 @@ function showImage(src, width, alt) {
 	img.alt = alt;
 	
 	// This next line will add the image to the body tag
-	document.body.mainSection.appendChild(img);
+	answersContainer.appendChild(img);
 }
+
+
 
 function showFinalResults() {
 	mainSection.innerHTML = `
@@ -127,8 +131,8 @@ function showFinalResults() {
 	`;
 }
 
+
 window.addEventListener('load', askQuestion, false);
-window.setInterval(askQuestion, 30000);
 submit.addEventListener('click', checkAnswer, false);
 
 
